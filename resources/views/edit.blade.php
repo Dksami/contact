@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>Contact Form</h1>
+    <h1>Contact Form Edit</h1>
     <a href="{{route('phone.index')}}"> Lists </a>
     <hr>
     @if (count($errors) > 0)
@@ -12,7 +12,8 @@
         </ul>
     @endif
 
-    {{Form::open(['url'=> route('phone.store'), 'method'=>'POST', 'role'=>"form"])}}
+    {{Form::model($data['row'], ['url'=> route('phone.update', $data['row']->id), 'method'=>'PUT', 'role'=>"form"])}}
+        {{ form::hidden('id', $data['row']->id ) }}
         @include('includes.form')
-    {{Form::close()}}
+    </form>
 @endsection

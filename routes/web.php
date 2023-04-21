@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/phone-lists', 'App\Http\Controllers\ContactController@index')->name('çontactLists');
-Route::get('/phone-form', 'App\Http\Controllers\ContactController@create')->name('contactForm');
-Route::post('/phone-form/submit', 'App\Http\Controllers\ContactController@store')->name('contactFormSubmit');
+// Route::get('/phone', 'App\Http\Controllers\ContactController@index')->name('phone.index');
+// Route::get('/phone-form', 'App\Http\Controllers\ContactController@create')->name('contactForm');
+// Route::post('/phone-form/submit', 'App\Http\Controllers\ContactController@store')->name('contactFormSubmit');
+
+Route::resource('phone','App\Http\Controllers\ContactController');
